@@ -1,0 +1,3 @@
+startLocation: 470 470 0
+goal: 370 630
+robotSize: 20
