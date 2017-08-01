@@ -24,12 +24,13 @@ int main()
 		double mapWidth = occupancyGrid.getWidth();
 		double mapResolution = occupancyGrid.getResolution();
 
-		ConfigurationManager configurationManager(mapHeight, mapWidth);
+		ConfigurationManager configurationManager(mapHeight, mapWidth, mapResolution);
 
 		// read from configuration
 		Location startLocation = configurationManager.GetStartLocation();
 		Location goalLocation = configurationManager.GetGoalLocation();
 		int robotRadius = configurationManager.GetRobotRadiusInCm();
+
 
 		Map map = Map(&occupancyGrid, robotRadius, startLocation, goalLocation, mapHeight, mapWidth);
 		Grid grid = map.grid;
