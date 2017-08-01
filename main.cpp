@@ -93,15 +93,15 @@ int main()
 
 					waypointIndex++;
 
-					/*robot.UpdateLocation();
+				/*	robot.UpdateLocation();
 										deltaX = robot.GetDeltaX();
 										deltaY = robot.GetDeltaY();
 										deltaYaw = robot.GetDeltaYaw();
 										cout << "Real values:" << " deltaX : " << deltaX << " deltaY: " << deltaY << " deltaYaw : " << deltaYaw << endl;
 										localizationManager.UpdateParticles(deltaX, deltaY, deltaYaw);
 										displayManager.PrintRouteCvMat(localizationManager.GetParticles());
-										localizationManager.PrintParticles();
-										*/
+										localizationManager.PrintParticles();*/
+
 				}
 
 				movementManager.StopMoving();

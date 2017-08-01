@@ -257,7 +257,7 @@ void MovementManager::PrintAfterMoving()
 		", y = " << currLocation.y <<
 		", yaw = " << currYaw <<
 		", distanceFromWaypoint =  " << distanceFromWaypoint <<
-		" (moveSpeed: " << moveSpeed << ")" << endl;
+		" (Speed: " << moveSpeed << ")" << endl;
 }
 
 void MovementManager::PrintAfterWaypointIsReached()
