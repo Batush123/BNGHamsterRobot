@@ -31,7 +31,6 @@ int main()
 		Location goalLocation = configurationManager.GetGoalLocation();
 		int robotRadius = configurationManager.GetRobotRadiusInCm();
 
-
 		Map map = Map(&occupancyGrid, robotRadius, startLocation, goalLocation, mapHeight, mapWidth);
 		Grid grid = map.grid;
 		LocalizationManager localizationManager(hamster, occupancyGrid, mapHeight, mapWidth, mapResolution);
@@ -123,4 +122,3 @@ int main()
 
 	return 0;
 }
-

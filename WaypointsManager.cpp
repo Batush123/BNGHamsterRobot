@@ -2,7 +2,6 @@
 #include "Globals.h"
 #include <math.h>
 
-#define NUMBER_OF_PARTICLES 1000
 #define MAX_NUM_OF_WAYPOINTS 100
 
 #define MAX_PIXEL_DIFF_BETWEEN_WAYPOINTS 10

@@ -62,6 +62,25 @@ void LocalizationManager::ConvertFromIndexToLocationOnMap(Particle * particle)
 	particle->y = (2 * particle->i - (double) ogridHeight) / ogridResolution;*/
 }
 
+bool LocalizationManager::IsObstacleDetected(LidarScan lidarScan, int angle)
+{
+	return lidarScan.getDistance(i) < lidarScan.getMaxRange();
+}
+
+Location LocalizationManager::CalcParticleGridLocation(Particle* particle, int angle, float lidarDistance)
+{
+	//obs = rob.x + d*cos(alpha + beta)
+	double obsX = particle->x + lidarDistance * cos(angle + particle->yaw * DEG2RAD- 180 * DEG2RAD);
+	double obsY = particle->y + lidarDistance * sin(angle + particle->yaw * DEG2RAD- 180 * DEG2RAD);
+
+	int i = (double) ogridHeight / 2 - obsY / ogridResolution;
+	int j = obsX / ogridResolution + ogridWidth / 2;
+
+	Location newLocation = { .x = i, .y = j };
+
+	return newLocation;
+}
+
 float LocalizationManager::ComputeBelief(Particle * particle)
 {
 	LidarScan lidarScan = hamster->getLidarScan();
@@ -73,14 +92,9 @@ float LocalizationManager::ComputeBelief(Particle * particle)
 	{
 		double angle = lidarScan.getScanAngleIncrement() * i * DEG2RAD;
 
-		if (lidarScan.getDistance(i) < lidarScan.getMaxRange() - 0.001)
+		if (IsObstacleDetected(lidarScan, i))
 		{
-			// Obstacle_Pos = Particle_Pos + Scan_Distance * cos (Heading + Scan Angle)
-			double obsX = particle->x + lidarScan.getDistance(i) * cos(angle + particle->yaw * DEG2RAD- 180 * DEG2RAD);
-			double obsY = particle->y + lidarScan.getDistance(i) * sin(angle + particle->yaw * DEG2RAD- 180 * DEG2RAD);
-
-			int i = (double) ogridHeight / 2 - obsY / ogridResolution;
-			int j = obsX / ogridResolution + ogridWidth / 2;
+			Location particleLocation = CalcParticleGridLocation(particle, lidarScan.getDistance(i), angle);
 
 			// Determine if there was a hit according to the grid
 			if (ogrid.getCell(i, j) == CELL_OCCUPIED)
