@@ -9,6 +9,7 @@
 #define LOCALIZATIONMANAGER_H_
 
 #include "Particle.h"
+#include "Location.h"
 #include <vector>
 #include <HamsterAPIClientCPP/Hamster.h>
 using namespace std;
@@ -33,6 +34,8 @@ private:
 	bool InsertOutOfRangeParticle(Particle * particle);
 	void UpdateParticle(Particle * particleToUpdate);
 	void UpdateParticle(Particle * particleToUpdate, Particle * betterParticle);
+	bool IsObstacleDetected(LidarScan lidarScan, int angle);
+	Location CalcParticleGridLocation(Particle* particle, int angle, float lidarDistance);
 
 public:
 	LocalizationManager(

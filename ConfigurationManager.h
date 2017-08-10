@@ -4,7 +4,7 @@
 #include <unordered_map>
 #include "Location.h"
 
-#define CONFIG_PATH "/home/user/BNGHamsterRobot/parameters.txt"
+#define CONFIG_PATH "/home/user/bngRobot/BNGHamsterRobot/parameters.txt"
 
 using namespace std;
 

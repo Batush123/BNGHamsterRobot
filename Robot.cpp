@@ -41,7 +41,7 @@ void Robot::Initialize(Location startLocation)
 
 	cout << "Set Hamster initial pose at (" << hamsterStartX << ", " << hamsterStartY << ")" << endl;
 
-	localizationManager->InitParticles();
+	//localizationManager->InitParticles();
 
 	UpdateLocation();
 }

@@ -94,7 +94,7 @@ int main()
 
 					waypointIndex++;
 
-				/*	robot.UpdateLocation();
+					/*robot.UpdateLocation();
 										deltaX = robot.GetDeltaX();
 										deltaY = robot.GetDeltaY();
 										deltaYaw = robot.GetDeltaYaw();

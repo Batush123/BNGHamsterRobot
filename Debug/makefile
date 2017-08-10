@@ -37,19 +37,19 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: BNGHamsterRobot
+all: WorkingMaybe
 
 # Tool invocations
-BNGHamsterRobot: $(OBJS) $(USER_OBJS)
+WorkingMaybe: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross G++ Linker'
-	g++ -std=c++11  -o "BNGHamsterRobot" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -std=c++11  -o "WorkingMaybe" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(CC_DEPS)$(C++_DEPS)$(EXECUTABLES)$(OBJS)$(C_UPPER_DEPS)$(CXX_DEPS)$(C_DEPS)$(CPP_DEPS) BNGHamsterRobot
+	-$(RM) $(CC_DEPS)$(C++_DEPS)$(EXECUTABLES)$(OBJS)$(C_UPPER_DEPS)$(CXX_DEPS)$(C_DEPS)$(CPP_DEPS) WorkingMaybe
 	-@echo ' '
 
 .PHONY: all clean dependents
